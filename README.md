@@ -1,4 +1,4 @@
-"# js-template" 1.全局操作
+1.全局操作
 全局安装 mocha 进行测试
 全局安装 vue/cli
 全局安装 express-generator
@@ -14,10 +14,12 @@
 通过 rest-client 进行 http 请求测试
 然后连接前端
 ///本模板处理了 book 的实例
+后端启动经常无故报模块缺失，先确认数据库已启动，再删除删除 node_modules，然后重新 npm install
 
 4.前端操作
 通过 VUE，访问后端数据，进行交互。打包构建时，将输出文件，通过 vue.config.js 设置
 输出结果到后端程序的 public 文件夹下。
+express 的设置静态文件夹，默认缺省 index.html 为/路由下的执行文件，如果存在，则之后的 router.get('/')将不执行（被短路）
 
 5.服务器部署（linux）
 

@@ -14,10 +14,12 @@
 通过rest-client进行http请求测试
 然后连接前端
 ///本模板处理了book的实例
+后端启动经常无故报模块缺失，先确认数据库已启动，再删除删除node_modules，然后重新npm install
 
 4.前端操作
 通过VUE，访问后端数据，进行交互。打包构建时，将输出文件，通过vue.config.js设置
 输出结果到后端程序的public文件夹下。
+express 的设置静态文件夹，默认缺省index.html为/路由下的执行文件，如果存在，则之后的router.get('/')将不执行（被短路）
 
 5.服务器部署（linux）
 

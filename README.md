@@ -1,4 +1,4 @@
-1.全局操作
+// 使用手册 1.全局操作
 全局安装 mocha 进行测试
 全局安装 vue/cli
 全局安装 express-generator

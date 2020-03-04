@@ -26,12 +26,13 @@ express 的设置静态文件夹，默认缺省 index.html 为/路由下的执�
 申请服务器，后讲 ip 地址名统一叫{this.url}(例如 {this.url} = 39.98.70.116) #命令 表示命令行输入命令，实际输入不需要#
 此处处理操作以百度云为例
 
-首先通过 初始化磁盘 初始化后选则密码登录 来改变之前用秘钥的复杂处理
+首先 停止服务运行 通过 初始化磁盘 初始化后选则密码登录 来改变之前用秘钥的复杂处理
 
 #ssh root@{this.url}
 通过此命令访问服务器，可能提示 ssh 不是命令，则下载 ssh-open 插件
 如果提示 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!  
 则在 C:\Users\admin\.ssh\known_hosts 文件 删除登录信息
+或者执行ssh-keygen -R XX.XX.XX.XX 
 
 然后执行以下命令，安装对应模块
 
@@ -43,23 +44,26 @@ express 的设置静态文件夹，默认缺省 index.html 为/路由下的执�
 #wget 地址 (nodejs.cn)
 #xz -d node-v12.14.0-linux-x64.tar.xz
 #tar xvf node-v12.14.0-linux-x64.tar
-#export PATH=/root/node-v12.14.0-linux-x64/bin:\$PATH
+#export PATH=/root/node-v12.14.0-linux-x64/bin:$PATH
+（重置环境变量  export PATH=$NODE_HOME:$PATH  ）
 
 //安装淘宝镜像
 #vim .npmrc 按 i n registry=https://registry.npm.taobao.org
+输入完成后，点ctrl+c 再输出:wq退出编辑窗口
 
-# pm install n -g
+# npm install n -g
 
 //如何用 n 来安装 node 版本
 #n ls-remote //查看版本
 #n 13.5.0 //安装版本
 
 //安装 mongodb
+https://www.mongodb.org.cn/tutorial/56.html
 找到 mongodb 官网下载，选 linux 版本 mongodb 的 server 和 shell，
 在下载按钮下方复制下载地址
 #wget 下载地址
 //安装文件处理
-#dpkg -i （deb 文件）：安装 deb 文件，server 可能需要安装组件（ #apt-get install libcurl3）
+#dpkg -i （deb 文件）：安装 deb 文件，shell 可能需要安装组件（ #apt-get install libcurl3）此处推荐使用#apt-get install -f
 #service mongod start：把 mongodb 安装在后台运行
 //运行后查看运行状况
 #ps -e |grep mongod：查看 mongod 的进程

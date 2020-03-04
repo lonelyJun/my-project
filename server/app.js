@@ -3,7 +3,7 @@ var path = require('path')
 
 var indexRouter = require('./routes/index')
 //把写好的路由挂载（第五步=>上一步在./test/bookTest.js中）
-var booksRouter = require('./routes/books')
+var userRouter = require('./routes/user')
 
 var app = express()
 
@@ -16,10 +16,12 @@ app.use((req, res, next) => {
 })
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({
+  extended: false
+}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
-app.use('/books', booksRouter)
+app.use('/user', userRouter)
 
 module.exports = app

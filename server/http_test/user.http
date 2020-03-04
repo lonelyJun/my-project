@@ -1,0 +1,14 @@
+GET http://localhost:3000/user
+
+###
+
+POST http://localhost:3000/user
+content-type: application/json
+
+{
+    "userName": "admin",
+    "userPassword": "admin"
+}
+
+###
+DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8

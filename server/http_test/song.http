@@ -1,0 +1,18 @@
+GET http://localhost:3000/api/song
+
+###
+POST http://localhost:3000/api/song/delete
+content-type: application/json
+
+
+{
+  "id":["5e8069ff459cda17349ed641","5e806a0b4b8e713174dba1c8"]
+}
+
+###
+POST http://localhost:3000/api/song/deleteAll
+content-type: application/json
+
+
+{
+}

@@ -22,27 +22,27 @@ describe('测试' + testName, () => {
   after(() => {
     mongoose.disconnect()
   })
-  it('添加一个用户', done => {
-    let user = {
-      userName: 'admin',
-      userPassword: 'admin'
-    }
-    dao.addData(user, result => {
-      assert(result.code == 0)
-      done()
-    })
-  })
+  // it('添加一个用户', done => {
+  //   let user = {
+  //     userName: 'testUser',
+  //     userPassword: '123456'
+  //   }
+  //   dao.addData(user, result => {
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
   it('测试查询所有用户', done => {
     dao.findAllData(result => {
       assert(result.code == 0)
       done()
     })
   })
-  // it('按照ID删除书本', done => {
-  //   let id = bookList[0]._id
-  //   BookDao.deleteBookById(id, err => {
-  //     assert(err == null)
-  //     done()
-  //   })
-  // })
+  it('根据用户名查找数据', done => {
+    dao.findDataByUserName('testUser', result => {
+      console.log(result);
+      assert(result.code == 0)
+      done()
+    })
+  })
 })

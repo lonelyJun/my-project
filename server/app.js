@@ -4,6 +4,7 @@ var path = require('path')
 var indexRouter = require('./routes/index')
 //把写好的路由挂载（第五步=>上一步在./test/bookTest.js中）
 var userRouter = require('./routes/user')
+var songRouter = require('./routes/song')
 
 var app = express()
 
@@ -20,8 +21,10 @@ app.use(express.urlencoded({
   extended: false
 }))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'music')))
 
 app.use('/', indexRouter)
-app.use('/user', userRouter)
+app.use('/api/user', userRouter)
+app.use('/api/song', songRouter)
 
 module.exports = app

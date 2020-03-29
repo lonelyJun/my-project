@@ -1,6 +1,14 @@
-const webpack = require('webpack')
-// vue.config.js
 module.exports = {
-  //输出文件目录
-  outputDir: '../server/public'
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      }
+    }
+  }
 }

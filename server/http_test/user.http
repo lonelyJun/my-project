@@ -1,14 +1,30 @@
-GET http://localhost:3000/user
+GET http://localhost:3000/api/user
 
 ###
 
-POST http://localhost:3000/user
+POST http://localhost:3000/api/user/login
 content-type: application/json
 
 {
-    "userName": "admin",
-    "userPassword": "admin"
+    "userName": "testUser",
+    "userPassword": "123456"
 }
 
 ###
-DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8
+
+POST http://localhost:3000/api/user/register
+content-type: application/json
+
+{
+    "userName": "zhangjunjun1",
+    "userPassword": "123456"
+}
+
+###
+POST http://localhost:3000/api/user/delete
+content-type: application/json
+
+
+{
+  "id":"5e5f19bd2e82953a34aab081"
+}

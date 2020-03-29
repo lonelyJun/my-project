@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
     type: String
   }
 });
+
 //生成方法getModel给予调用，返回user模型
 module.exports = {
   getModel: function () {

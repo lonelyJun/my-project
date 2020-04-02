@@ -4,6 +4,13 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 
+import
+MediaplayerComponent
+from 'zjj-components'
+import "zjj-components/lib/my-components.css"
+
+Vue.use(MediaplayerComponent)
+
 
 Vue.config.productionTip = false
 

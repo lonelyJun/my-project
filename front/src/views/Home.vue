@@ -10,7 +10,13 @@
       <div class="content">
         <BrocastList @choicemusic="choiceMusic" />
       </div>
-      <Aplayer v-if="aplayerFlag" :music="music" class="aplayer" />
+
+      <mediaplayer-component
+        :mediainfo="music"
+        meidaType="audio"
+        :keyValue="music?music.id:0"
+        :autoPlayFlag="true"
+      />
     </div>
     <!-- 登录注册窗口 -->
     <el-dialog title="登录/注册" :visible.sync="loginFlag">
@@ -65,7 +71,6 @@
 <script>
 // @ is an alias to /src
 import BrocastList from "../components/BrocastList/BrocastList";
-import Aplayer from "vue-aplayer";
 import { login, register } from "../server/index";
 export default {
   name: "Home",
@@ -75,8 +80,7 @@ export default {
     }
   },
   components: {
-    BrocastList,
-    Aplayer
+    BrocastList
   },
   data() {
     var validatePass = (rule, value, callback) => {
@@ -99,13 +103,9 @@ export default {
       }
     };
     return {
-      aplayerFlag: false,
       music: {
-        title: "未知",
-        artist: "我",
-        url: "",
-        pic: "",
-        lir: "[00:00.00]lrc here\n[00:01.00]aplayer"
+        id: 0,
+        url: ""
       },
       loginFlag: false, //登录窗口对话框显示控制器
       activeName: "login", //登录注册切换页控制器
@@ -136,12 +136,8 @@ export default {
   },
   methods: {
     choiceMusic(obj) {
-      this.aplayerFlag = false;
-      this.music.title = obj.songName;
+      this.music.id = obj._id;
       this.music.url = "/" + obj.url.replace(/\\/g, "/");
-      // console.log(this.music.url);
-      this.aplayerFlag = true;
-      // this.$refs.audioPlayer.play();
     },
     submitForm(formName) {
       if (formName == "form") {
